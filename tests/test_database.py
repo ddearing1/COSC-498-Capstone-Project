@@ -6,8 +6,8 @@ class TestDatabase(unittest.TestCase):
     def setUpClass(cls):
         cls.connection = mysql.connector.connect(
             host='localhost',
-            user='your_username',
-            password='your_password',
+            user='ddearing1',
+            password='2329Amina$',
             database='Final'
         )
         cls.cursor = cls.connection.cursor()
