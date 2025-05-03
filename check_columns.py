@@ -1,3 +1,5 @@
+import check_columns
+
 # Read the SQL file
 with open("/Users/donnadearing/Desktop/COSC-498-Capstone-Project/final_airline_reissue.sql", "r") as file:
     sql_script = file.read()
@@ -11,3 +13,4 @@ for column in columns_to_check:
         print(f"Column '{column}' found in the script.")
     else:
         print(f"Column '{column}' NOT found in the script.")
+
