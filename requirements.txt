@@ -1,1 +1,36 @@
 mysql-connector-python==9.3.0
+pytest
+requests
+numpy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'  # Use the Python version you are working with
+
+      - name: Install dependencies
+        run: pip install -r /Users/donnadearing/Desktop/COSC-498-Capstone-Project/requirements.txt  # Install dependencies from requirements.txt
+
+      - name: Run column check script
+        run: python check_columns.py
+
+pytest
+
+requests
+
+numpy
+
+
