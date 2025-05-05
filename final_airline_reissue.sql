@@ -60,9 +60,12 @@ VALUES
 (3, 4, 'canceled');
 
 -- STEP 10: Show databases
+USE final_airline_reissue;
 GRANT ALL PRIVILEGES ON final_airline_reissue.* TO 'ddearing1'@'localhost';
 FLUSH PRIVILEGES;
 
 SHOW DATABASES;
 USE final_airline_reissue;
 SHOW TABLES;
+
+SOURCE /Users/donnadearing/Desktop/COSC-498-Capstone-Project/final_airline_reissue.sql;
