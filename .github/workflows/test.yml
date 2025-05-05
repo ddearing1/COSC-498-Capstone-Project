@@ -18,9 +18,9 @@ jobs:
           - 3306:3306
         env:
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: testdb
-          MYSQL_USER: testuser
-          MYSQL_PASSWORD: testpassword
+          MYSQL_DATABASE: final_airline_reissue
+          MYSQL_USER: ddearing1
+          MYSQL_PASSWORD: 2329Amina$
 
     steps:
     - name: Checkout code
@@ -44,7 +44,7 @@ jobs:
       env:
         DB_HOST: 127.0.0.1
         DB_PORT: 3306
-        DB_NAME: testdb
-        DB_USER: testuser
-        DB_PASSWORD: testpassword
+        DB_NAME: final_airline_reissue
+        DB_USER: ddearing1
+        DB_PASSWORD: 2329Amina$
       run: python -m unittest discover -s tests
