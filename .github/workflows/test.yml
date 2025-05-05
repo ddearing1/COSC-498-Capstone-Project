@@ -38,8 +38,7 @@ jobs:
 
     - name: Seed database
       run: |
-        mysql -h 127.0.0.1 -u testuser -ptestpassword testdb < final_airline_reissue.sql
-
+    mysql -h 127.0.0.1 -u ddearing1 -p2329Amina$ final_airline_reissue < final_airline_reissue.sql
     - name: Run tests
       env:
         DB_HOST: 127.0.0.1
