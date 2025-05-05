@@ -48,3 +48,12 @@ jobs:
         DB_USER: ddearing1
         DB_PASSWORD: 2329Amina$
       run: python -m unittest discover -s tests
+
+# Ignore PowerPoint files
+*.pptx
+
+# Ignore backup or temporary files
+~$*
+
+# Ignore duplicate SQL files
+final_airline_reissue_copy.sql

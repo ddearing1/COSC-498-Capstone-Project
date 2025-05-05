@@ -3,13 +3,14 @@ import mysql.connector
 
 @pytest.fixture(scope="module")
 def db_connection():
-    # Connect to the test database
+    print("Attempting to connect to the database...")
     connection = mysql.connector.connect(
         host="localhost",
         user="ddearing1",
         password="2329Amina$",
-        database="airline_reissues_test"  # This is the database name
+        database="final_airline_reissue"  # Correct database name
     )
+    print("Connection successful!")
     yield connection
     connection.close()
 
@@ -92,5 +93,10 @@ def test_reservations_table(db_connection, setup_test_data):
     cursor.close()
 
 def test_database_operations(db_connection):
-    # Add your test logic here
-    pass  # Placeholder to avoid errors
+    cursor = db_connection.cursor()
+    # Show databases
+    cursor.execute("SHOW DATABASES;")
+    result = cursor.fetchall()
+    for db in result:
+        print(db)
+    cursor.close()
