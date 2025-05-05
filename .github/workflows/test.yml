@@ -11,6 +11,16 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:5.7
+        ports:
+          - 3306:3306
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: testdb
+          MYSQL_USER: testuser
+          MYSQL_PASSWORD: testpassword
 
     steps:
     - name: Checkout code
@@ -19,13 +29,22 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.9'
+        python-version: 3.9
 
     - name: Install dependencies
-      run: pip install --upgrade pip
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
 
-    - name: Install dependencies
-      run: pip install -r requirements.txt
+    - name: Seed database
+      run: |
+        mysql -h 127.0.0.1 -u testuser -ptestpassword testdb < final_airline_reissue.sql
 
     - name: Run tests
+      env:
+        DB_HOST: 127.0.0.1
+        DB_PORT: 3306
+        DB_NAME: testdb
+        DB_USER: testuser
+        DB_PASSWORD: testpassword
       run: python -m unittest discover -s tests
